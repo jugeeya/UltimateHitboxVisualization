@@ -276,6 +276,17 @@ Shield will take damage but not deteriorate
 
 )"""";
 
+const std::string              shield_help_player = R""""(
+Shield options for the player
+
+Infinite
+No shield damage, no decay
+
+Hold and Constant
+no decay
+
+)"""";
+
 // OOS
 const std::string oos_help = R""""(
 Option to delay oos options
@@ -352,3 +363,14 @@ Set angleable tilt and smash attacks.)"""";
 
 const std::string save_damage_help = R""""(
 Set if save states should apply to damage.)"""";
+
+#define NORMAL 0
+const std::vector<std::string> strength_items{ "Normal", "Medium", "High"};
+const std::string              sdi_strength_help = R""""(
+How many frames between each SDI input
+
+Normal 8
+Medium 6
+High 4
+
+)"""";

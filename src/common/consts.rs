@@ -319,6 +319,7 @@ pub struct TrainingModpackMenu {
     pub stage_hazards: OnOff,
     pub di_state: Direction,
     pub sdi_state: Direction,
+    pub sdi_strength: SdiStrength,
     pub air_dodge_dir: Direction,
     pub mash_state: Action,
     pub follow_up: Action,
@@ -328,6 +329,7 @@ pub struct TrainingModpackMenu {
     pub tech_state: TechFlags,
     pub miss_tech_state: MissTechFlags,
     pub shield_state: Shield,
+    pub player_shield: Shield,
     pub defensive_state: Defensive,
     pub oos_offset: Delay,
     pub reaction_time: Delay,
@@ -348,4 +350,23 @@ pub struct TrainingModpackMenu {
 pub enum FighterId {
     Player = 0,
     CPU = 1,
+}
+
+#[repr(u32)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[allow(dead_code)]
+pub enum SdiStrength {
+    Normal = 0,
+    Medium = 1,
+    High = 2,
+}
+
+impl SdiStrength {
+    pub fn into_u32(self) -> u32 {
+        match self {
+            SdiStrength::Normal => 8,
+            SdiStrength::Medium => 6,
+            SdiStrength::High => 4,
+        }
+    }
 }
